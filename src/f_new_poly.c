@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f_exit.c                                           :+:      :+:    :+:   */
+/*   f_new_poly.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vthomas <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/28 06:31:33 by vthomas           #+#    #+#             */
-/*   Updated: 2016/03/03 04:35:24 by vthomas          ###   ########.fr       */
+/*   Created: 2016/03/03 04:43:05 by vthomas           #+#    #+#             */
+/*   Updated: 2016/03/03 05:57:50 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include "stdlib.h"
 #include "libft.h"
 
-int	f_exit(int keycode, void *data)
+t_poly	*f_new_poly(int nb_corner)
 {
-	if (keycode == 53)
-	{
-		exit(0);
-	}
-	return (0);
+	t_poly	*poly;
+
+	poly = (t_poly *)ft_memalloc(sizeof(t_poly));
+	poly->pos_corner = (t_coord *)ft_memalloc(sizeof(t_coord) * nb_corner);
+	poly->nb_corner = nb_corner;
+	return (poly);
 }

@@ -62,9 +62,9 @@ LIB_FILE=$(addprefix $(LIB),/$(addprefix $(LIB_NAME),.a))
 all: $(NAME)
 $(NAME):$(OBJ) $(LIB)
 ifeq ($(DEBUG),yes)
-	@echo "[MAIN]\t\t(debug)"
+	@echo "\033[32m[MAIN]\033[5;31m\t\t(debug)\033[0m"
 else
-	@echo "[MAIN]\t\t(release)"
+	@echo "\033[32m[MAIN]\t\t(release)\033[0m"
 endif
 	@$(CC) $(CFLAGS) -o $(NAME) $(INC) $(OBJ) $(LIB_FILE) -lm\
 		-lmlx -framework OpenGL -framework AppKit
@@ -76,7 +76,7 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 
 # Compilation of the librairie(s)
 $(LIB):
-	@echo "[LIBRAIRIES]"
+	@echo "\033[34m[LIBRAIRIES]\033[0m"
 	@(cd $@ && $(MAKE) re)
 
 # Force dependance to be rebuild at all call of the rule(s)
@@ -89,6 +89,7 @@ clean:
 
 fclean: clean
 	@rm -rf $(NAME)
+	@(cd $(LIB) && $(MAKE) $@)
 	@echo "\nWow ! Student clean it so much !\n"
 
 norme:
