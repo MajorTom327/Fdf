@@ -11,7 +11,7 @@
 #* ************************************************************************** *#
 
 
-NAME=fillit
+NAME=fdf
 #Debugging commande (yes/no)
 DEBUG=yes
 CC=gcc
@@ -32,10 +32,14 @@ OBJ_PATH=./obj/
 LIB_PATH=./
 
 SRC_NAME=main.c\
-		 f_pixelintensity.c\
-		 f_getangle.c\
-		 f_line.c\
-		 f_exit.c
+		 f_distance.c\
+		 f_draw_line.c\
+		 f_draw_linefade.c\
+		 f_draw_pixelintensity.c\
+		 f_draw_poly.c\
+		 f_exit.c\
+		 f_new_coord.c\
+		 f_new_poly.c
 
 INC_NAME=$(wildcard *.h)
 OBJ_NAME=$(SRC_NAME:.c=.o)
