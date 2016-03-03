@@ -32,6 +32,7 @@ OBJ_PATH=./obj/
 LIB_PATH=./
 
 SRC_NAME=main.c\
+		 f_pixelintensity.c\
 		 f_getangle.c\
 		 f_line.c\
 		 f_exit.c
@@ -79,6 +80,7 @@ $(LIB):
 re: fclean all
 
 clean:
+	@rm -rf $(OBJ)
 	@rm -rf $(OBJ_PATH)
 
 fclean: clean
