@@ -6,7 +6,7 @@
 /*   By: vthomas <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/28 06:25:18 by vthomas           #+#    #+#             */
-/*   Updated: 2016/03/03 07:21:39 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/08/31 13:39:11 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,5 @@ void			f_draw_linefade(t_coord src, t_coord dst, t_data data, int *c);
 void			f_draw_poly(t_poly poly, int c, t_data data);
 void			f_draw_pixelintensity(const t_coord pos, int color, float \
 		intensity, const	t_data data);
+int	f_mouse(int btn, int x, int y, void *param);
 #endif

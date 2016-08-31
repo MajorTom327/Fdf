@@ -6,7 +6,7 @@
 /*   By: vthomas <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/03 04:49:09 by vthomas           #+#    #+#             */
-/*   Updated: 2016/03/03 06:25:30 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/08/31 13:10:18 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,23 +38,29 @@ static int	f_purcentcolor(int *c, int p)
 
 void	f_draw_linefade(t_coord src, t_coord dst, t_data data, int *c)
 {
-	t_coord		new_pos;
-	const int	dist_x = dst.x - src.x;
-	const int	dist_y = dst.y - src.y;
+	t_coord		pos;
+	const int	dx = dst.x - src.x;
+	const int	dy = dst.y - src.y;
 	const int	distance = f_distance(src, dst);
-	int			cur_dist;
-	int			purcent;
-	int			new_color;
+	int tmp;
+	float grad;
+	float xgap;
 
-	new_pos.x = src.x;
-	while (new_pos.x != dst.x)
+	if (dx > dy)
 	{
-		cur_dist = f_distance(new_pos, dst);
-		purcent = (int)(((float)cur_dist / (float)distance) * 100.0);
-		printf("dist: \t%d\tpurcent:\t%d\n", cur_dist,purcent);
-		new_color = f_purcentcolor(c, purcent); 
-		new_pos.x++;
-		new_pos.y = src.y + dist_y * (new_pos.x - src.x) / dist_x;
-		mlx_pixel_put(data.mlx, data.win, new_pos.x, new_pos.y, new_color);
+		if (dst.x < src.x)
+		{
+			tmp = dst.x;
+			dst.x = src.x;
+			src.x = tmp;
+			tmp = dst.y;
+			dst.y = src.y;
+			src.y = tmp;
+		}
+		grad = dy / dx;
+		pos.x = src.x;
+		pos.y = dst.y + grad * (pos.x - src.x);
+		xgap = (1.0 - (float)src.x + 0.5);
 	}
+	//mlx_pixel_put(data.mlx, data.win, new_pos.x, new_pos.y, new_color);
 }
