@@ -66,8 +66,8 @@ ifeq ($(DEBUG),yes)
 else
 	@echo "\033[32m[MAIN]\t\t(release)\033[0m"
 endif
-	@$(CC) $(CFLAGS) -o $(NAME) $(INC) $(OBJ) $(LIB_FILE) -lm\
-		-lmlx -framework OpenGL -framework AppKit
+	@$(CC) $(CFLAGS) -o $(NAME) $(INC) -I /user/X11/include  $(OBJ) $(LIB_FILE) -L/usr/X11/lib -lm\
+		-lmlx -lX11 -lXext
 
 # Compilation of all .c with modulable rule
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
