@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   f_draw_linefade.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vthomas <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/03 04:49:09 by vthomas           #+#    #+#             */
-/*   Updated: 2016/08/31 13:10:18 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/17 03:52:06 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ static int	f_purcentcolor(int *c, int p)
 
 void	f_draw_linefade(t_coord src, t_coord dst, t_data data, int *c)
 {
+	/*
 	t_coord		pos;
 	const int	dx = dst.x - src.x;
 	const int	dy = dst.y - src.y;
@@ -63,4 +64,5 @@ void	f_draw_linefade(t_coord src, t_coord dst, t_data data, int *c)
 		xgap = (1.0 - (float)src.x + 0.5);
 	}
 	//mlx_pixel_put(data.mlx, data.win, new_pos.x, new_pos.y, new_color);
+	*/
 }

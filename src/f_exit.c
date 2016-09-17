@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/28 06:31:33 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/17 02:41:59 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/17 03:51:28 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "stdlib.h"
 #include "libft.h"
 
-int	f_exit(int keycode, void *data)
+int		f_exit(int keycode, void *data)
 {
 	if (keycode == 53)
 	{
@@ -23,12 +23,8 @@ int	f_exit(int keycode, void *data)
 	return (0);
 }
 
-int	f_mouse(int btn, int x, int y, void *param)
+void	usage()
 {
-	ft_putstr("Motion: [");
-	ft_putnbr(x);
-	ft_putstr(";");
-	ft_putnbr(y);
-	ft_putendl("]");
-	return (0);
+	ft_putendl("Usage: ./fdf file...");
+	exit(0);
 }

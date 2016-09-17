@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 21:15:40 by vthomas           #+#    #+#              #
-#    Updated: 2016/09/17 02:06:43 by vthomas          ###   ########.fr        #
+#    Updated: 2016/09/17 03:49:55 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,14 +40,11 @@ OBJ_PATH=./obj/
 LIB_PATH=./
 
 SRC_NAME=main.c\
-		 f_distance.c\
 		 f_draw_line.c\
 		 f_draw_linefade.c\
 		 f_draw_pixelintensity.c\
-		 f_draw_poly.c\
 		 f_exit.c\
-		 f_new_coord.c\
-		 f_new_poly.c
+		 event.c
 
 INC_NAME=$(wildcard *.h)
 OBJ_NAME=$(SRC_NAME:.c=.o)

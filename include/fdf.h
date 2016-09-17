@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/28 06:25:18 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/17 02:41:38 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/17 03:51:12 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define FDF_H
 # define W_HEIGHT	1024
 # define W_WIDTH	1024
+# define StructureNotifyMask (1L << 17)
+# define DestroyNotify 17
 
 typedef struct	s_coord
 {
@@ -30,13 +32,11 @@ typedef struct	s_poly
 	int		nb_corner;
 	t_coord	*pos_corner;
 }				t_poly;
+void			usage();
 int				f_exit(int keycode, void *data);
 int				f_distance(t_coord src, t_coord dst);
-t_coord			*f_new_coord(int x, int y);
-t_poly			*f_new_poly(int nb_corner);
 void			f_draw_line(t_coord src, t_coord dst, t_data data, int c);
 void			f_draw_linefade(t_coord src, t_coord dst, t_data data, int *c);
-void			f_draw_poly(t_poly poly, int c, t_data data);
 void			f_draw_pixelintensity(const t_coord pos, int color, float \
 		intensity, const	t_data data);
 int	f_mouse(int btn, int x, int y, void *param);
