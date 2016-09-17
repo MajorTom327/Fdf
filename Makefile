@@ -1,18 +1,26 @@
-#* ************************************************************************** *#
-#*                                                                            *#
-#*                                                        :::      ::::::::   *#
-#*   Makefile                                           :+:      :+:    :+:   *#
-#*                                                    +:+ +:+         +:+     *#
-#*   By:  vthomas <vthomas@student.42.fr>           +#+  +:+       +#+        *#
-#*                                                +#+#+#+#+#+   +#+           *#
-#*   Created: 2015/12/29 21:15:40 by vthomas           #+#    #+#             *#
-#*   Updated: 2015/12/29 23:50:29 by                  ###   ########.fr       *#
-#*                                                                            *#
-#* ************************************************************************** *#
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2015/12/29 21:15:40 by vthomas           #+#    #+#              #
+#    Updated: 2016/09/17 02:06:43 by vthomas          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
 
 NAME=fdf
+SYS=mac
 #Debugging commande (yes/no)
+ifeq ($(SYS),mac)
+	ARG = $(INC) $(OBJ) $(LIB_FILE) -lm -lmlx -framework OpenGL\
+	-framework AppKit
+else
+	ARG = -I /user/X11/include  $(OBJ) $(LIB_FILE) -L/usr/X11/lib -lm -lmlx\
+	-lX11 -lXext
+endif
 DEBUG=yes
 CC=gcc
 ifeq ($(DEBUG),yes)
@@ -66,8 +74,7 @@ ifeq ($(DEBUG),yes)
 else
 	@echo "\033[32m[MAIN]\t\t(release)\033[0m"
 endif
-	@$(CC) $(CFLAGS) -o $(NAME) $(INC) -I /user/X11/include  $(OBJ) $(LIB_FILE) -L/usr/X11/lib -lm\
-		-lmlx -lX11 -lXext
+	@$(CC) $(CFLAGS) -o $(NAME) $(INC) $(ARG)
 
 # Compilation of all .c with modulable rule
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
