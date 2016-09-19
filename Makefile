@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 21:15:40 by vthomas           #+#    #+#              #
-#    Updated: 2016/09/19 06:00:43 by vthomas          ###   ########.fr        #
+#    Updated: 2016/09/19 08:05:51 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,8 +40,9 @@ OBJ_PATH=./obj/
 LIB_PATH=./
 
 SRC_NAME=main.c\
+		 draw_grid.c\
 		 f_draw_line.c\
-		 f_draw_linefade.c\
+		 f_draw_linev3.c\
 		 f_draw_pixelintensity.c\
 		 f_exit.c\
 		 get_next_line.c\
