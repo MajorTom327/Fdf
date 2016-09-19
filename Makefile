@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 21:15:40 by vthomas           #+#    #+#              #
-#    Updated: 2016/09/19 01:11:43 by vthomas          ###   ########.fr        #
+#    Updated: 2016/09/19 06:00:43 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ endif
 DEBUG=yes
 CC=gcc
 ifeq ($(DEBUG),yes)
-	export CFLAGS=-g
+	export CFLAGS=-Wall -Wextra -g ./libdbg.a
 else
 	export CFLAGS=-Wall -Wextra -Werror
 endif
@@ -103,5 +103,5 @@ norme:
 
 test: re
 	@clear
-	@./$(NAME) | cat -e
-	@(cd ./ && $(MAKE) fclean)
+	@./$(NAME) ./test/42.fdf
+	@$(MAKE) fclean

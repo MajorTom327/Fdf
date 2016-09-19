@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/28 06:31:33 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/19 01:56:17 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/19 04:43:02 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,16 @@
 #include <fdf.h>
 #include <libft.h>
 
-void exitf(void)
+void	exitf(void)
 {
 	perror(strerror(errno));
 	exit(EXIT_FAILURE);
+}
+
+void	exitfile(void)
+{
+	ft_putendl("The file has bad formating !");
+	exitf();
 }
 
 void	exitm(void *mem)

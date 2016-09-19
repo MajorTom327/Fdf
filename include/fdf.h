@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/28 06:25:18 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/19 01:57:56 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/19 06:03:36 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define FDF_H
 # define W_HEIGHT	1024
 # define W_WIDTH	1024
+# define FDF_BASE_X	32
+# define FDF_BASE_Y 16
 # define StructureNotifyMask (1L << 17)
 # define DestroyNotify 17
 # include <vector.h>
@@ -40,5 +42,6 @@ t_v3			**get_grid(const char *av);
 
 void			usage(void);
 void			exitf(void);
+void			exitfile(void);
 void			exitm(void *mem);
 #endif
