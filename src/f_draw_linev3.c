@@ -17,8 +17,8 @@ void	f_draw_linev3(t_v3 src, t_v3 dst, t_data data, int c)
 	t_v2	dst2;
 
 	src2.x = src.x;
-	src2.y = src.y - (src.z * FDF_BASE_LVL);
+	src2.y = src.y - (src.z * data.format.z);
 	dst2.x = dst.x;
-	dst2.y = dst.y - (dst.z * FDF_BASE_LVL);
+	dst2.y = dst.y - (dst.z * data.format.z);
 	f_draw_line(src2, dst2, data, c);
 }

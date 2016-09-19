@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 21:15:40 by vthomas           #+#    #+#              #
-#    Updated: 2016/09/19 08:05:51 by vthomas          ###   ########.fr        #
+#    Updated: 2016/09/19 09:01:40 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,12 +41,14 @@ LIB_PATH=./
 
 SRC_NAME=main.c\
 		 draw_grid.c\
+		 refresh.c\
 		 f_draw_line.c\
 		 f_draw_linev3.c\
 		 f_draw_pixelintensity.c\
 		 f_exit.c\
 		 get_next_line.c\
 		 get_grid.c\
+		 motion.c\
 		 event.c
 
 OBJ_NAME=$(SRC_NAME:.c=.o)

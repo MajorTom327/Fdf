@@ -41,10 +41,10 @@ void draw_grid(t_data data, t_v3 **grid, t_v2 size, int c)
 {
 	t_v2	pos;
 
-	dbg_info("draw_grid", "Start drawing...", 1);
-	dbg_diff_int("draw_grid", "size", size.x, 0, 1);
-	dbg_diff_int("draw_grid", "size", size.y, 1, 1);
-	print_grid(grid, size);
+//	dbg_info("draw_grid", "Start drawing...", 1);
+//	dbg_diff_int("draw_grid", "size", size.x, 0, 1);
+//	dbg_diff_int("draw_grid", "size", size.y, 1, 1);
+//	print_grid(grid, size);
 	pos.y = 0;
 	while (pos.y < size.y)
 	{
@@ -64,5 +64,5 @@ void draw_grid(t_data data, t_v3 **grid, t_v2 size, int c)
 		}
 		pos.y++;
 	}
-	dbg_info("draw_grid", "Done !", 1);
+//	dbg_info("draw_grid", "Done !", 1);
 }
