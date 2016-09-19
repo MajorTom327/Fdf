@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/28 06:25:18 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/19 09:59:06 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/19 10:01:05 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # define FDF_BASE_X	16
 # define FDF_BASE_Y 8
 # define FDF_BASE_LVL 4
-# define FDF_MOVE_PADDING 8
+# define FDF_MOVE_PADDING 32
 # define FDF_MARGIN	W_HEIGHT / 5
 # define StructureNotifyMask (1L << 17)
 # define DestroyNotify 17
