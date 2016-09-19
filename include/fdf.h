@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/28 06:25:18 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/19 10:01:05 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/19 12:43:26 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # define FDF_BASE_X	16
 # define FDF_BASE_Y 8
 # define FDF_BASE_LVL 4
-# define FDF_MOVE_PADDING 32
+# define FDF_MOVE_PADDING 8
 # define FDF_MARGIN	W_HEIGHT / 5
 # define StructureNotifyMask (1L << 17)
 # define DestroyNotify 17
@@ -31,8 +31,8 @@
 # define VK_A		0
 # define VK_S		1
 # define VK_D		2
-# define VL_Q		12
-# define VL_E		14
+# define VK_Q		12
+# define VK_E		14
 
 # include <vector.h>
 typedef	struct	s_data
@@ -43,6 +43,7 @@ typedef	struct	s_data
 	t_v2	size;
 	t_v3	format;
 	t_v2	pos;
+	int		angle;
 }				t_data;
 typedef struct	s_poly
 {
@@ -62,11 +63,12 @@ int				event_key(int keycode, t_data *data);
 
 t_v3			**get_grid(const char *av, t_v2 *size);
 
-void			draw_grid(t_data data, t_v3 **grid, t_v2 size, int c);
-void			refresh(t_data data);
+void			draw_grid(t_data *data, t_v3 **grid, t_v2 size, int c);
+void			refresh(t_data *data);
 
-void			move_grid(t_data *data, t_v3 dir);
-void			resize_grid(t_data *data, t_v3 dir);
+void			move_grid(t_data *data, int keycode);
+void			resize_grid(t_data *data, int keycode);
+void			rotate_grid(t_data *data, int keycode);
 
 void			usage(void);
 void			exitf(void);

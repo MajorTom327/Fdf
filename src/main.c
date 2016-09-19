@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/28 05:22:40 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/19 10:16:41 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/19 12:46:59 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int	main(int ac, char **av)
 	data.format.z = FDF_BASE_LVL;
 	data.pos.x = data.format.x * 3;
 	data.pos.y = data.format.y * 3;
+	data.angle = 0;
 
-	refresh(data);
-	draw_grid(data, data.grid, data.size, 0xFFFFFF);
+	refresh(&data);
 
 	mlx_key_hook(data.win, &f_exit, 0);
 	//mlx_mouse_hook(data.win, &f_mouse, 0);

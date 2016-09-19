@@ -22,36 +22,12 @@ int		f_exit(int keycode, void *data)
 
 int		event_key(int keycode, t_data *data)
 {
-	t_v3	tmp;
-
-	tmp.x = 0;
-	tmp.y = 0;
-	tmp.z = 0;
-	if (keycode == VK_W)
-		tmp.y = -1;
-	if (keycode == VK_A)
-		tmp.x = -1;
-	if (keycode == VK_S)
-		tmp.y = 1;
-	if (keycode == VK_D)
-		tmp.x = 1;
-	if (tmp.x != 0 || tmp.y != 0)
-	{
-		move_grid(data, tmp);
-		return (0);
-	}
-	if (keycode == VK_UP)
-		tmp.y = -1;
-	if (keycode == VK_LEFT)
-		tmp.x = -1;
-	if (keycode == VK_DOWN)
-		tmp.y = 1;
-	if (keycode == VK_RIGHT)
-		tmp.x = 1;
-	if (keycode == VK_ADD)
-		tmp.z = 1;
-	if (keycode == VK_SUB)
-		tmp.z = -1;
-	if (tmp.x != 0 || tmp.y != 0 || tmp.z != 0)
-		resize_grid(data, tmp);
+	if (keycode == VK_W || keycode == VK_A ||\
+		keycode == VK_S || keycode == VK_D)
+		move_grid(data, keycode);
+	else if (keycode == VK_UP || keycode == VK_LEFT || keycode == VK_RIGHT ||\
+		keycode == VK_DOWN || keycode == VK_ADD || keycode == VK_SUB)
+		resize_grid(data, keycode);
+	else if (keycode == VK_Q || keycode == VK_E)
+		rotate_grid(data, keycode);
 }

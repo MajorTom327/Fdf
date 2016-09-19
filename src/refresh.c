@@ -2,9 +2,8 @@
 #include <mlx.h>
 #include <debug.h>
 
-void refresh(t_data data)
+void refresh(t_data *data)
 {
-	mlx_clear_window(data.mlx, data.win);
-	draw_grid(data, data.grid, data.size, 0xFFFFFF);
-	dbg_info("refresh", "Refreshed successfully !", 1);
+	mlx_clear_window(data->mlx, data->win);
+	draw_grid(data, data->grid, data->size, 0xFFFFFF);
 }

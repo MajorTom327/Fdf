@@ -73,7 +73,7 @@ static t_v3	**sf_grid(const char *av, t_v2 *size)
 		exitm((void*)(grid[pos.y] = (t_v3*)ft_memalloc(sizeof(t_v3) * size->x)));
 		while (i.x < l)
 		{
-			if (ft_isdigit(str[i.y]))
+			if (ft_isdigit(str[i.y]) || str[i.y] == '-')
 			{
 				while (ft_isdigit(str[i.x]))
 					i.x++;

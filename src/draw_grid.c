@@ -37,7 +37,7 @@ static void print_grid(t_v3 **grid, t_v2 size)
 	}
 }
 
-void draw_grid(t_data data, t_v3 **grid, t_v2 size, int c)
+void draw_grid(t_data *data, t_v3 **grid, t_v2 size, int c)
 {
 	t_v2	pos;
 
@@ -53,16 +53,18 @@ void draw_grid(t_data data, t_v3 **grid, t_v2 size, int c)
 		{
 			//mlx_pixel_put(data.mlx, data.win, grid[pos.y][pos.x].y, grid[pos.y][pos.x].x, 0x00FF00);
 			if (pos.x > 0)
-				f_draw_linev3(grid[pos.y][pos.x], grid[pos.y][pos.x - 1], data, c);
+				f_draw_linev3(grid[pos.y][pos.x], grid[pos.y][pos.x - 1], *data, c);
 			if (pos.y > 0)
-				f_draw_linev3(grid[pos.y][pos.x], grid[pos.y - 1][pos.x], data, c);
+				f_draw_linev3(grid[pos.y][pos.x], grid[pos.y - 1][pos.x], *data, c);
 			if (pos.x + 1 < size.x - 1)
-				f_draw_linev3(grid[pos.y][pos.x], grid[pos.y][pos.x + 1], data, c);
+				f_draw_linev3(grid[pos.y][pos.x], grid[pos.y][pos.x + 1], *data, c);
 			if (pos.y + 1 < size.y)
-				f_draw_linev3(grid[pos.y][pos.x], grid[pos.y + 1][pos.x], data, c);
+				f_draw_linev3(grid[pos.y][pos.x], grid[pos.y + 1][pos.x], *data, c);
 			pos.x++;
 		}
 		pos.y++;
-	}
+	}/*
+	if (data->angle)
+		data->angle = 0;*/
 //	dbg_info("draw_grid", "Done !", 1);
 }

@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 21:15:40 by vthomas           #+#    #+#              #
-#    Updated: 2016/09/19 09:01:40 by vthomas          ###   ########.fr        #
+#    Updated: 2016/09/19 10:39:59 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -106,5 +106,5 @@ norme:
 
 test: re
 	@clear
-	@./$(NAME) ./test/42.fdf
+	@./$(NAME) ./test/pyra.fdf
 	@$(MAKE) fclean
