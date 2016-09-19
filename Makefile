@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 21:15:40 by vthomas           #+#    #+#              #
-#    Updated: 2016/09/17 03:49:55 by vthomas          ###   ########.fr        #
+#    Updated: 2016/09/19 01:11:43 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,9 +44,10 @@ SRC_NAME=main.c\
 		 f_draw_linefade.c\
 		 f_draw_pixelintensity.c\
 		 f_exit.c\
+		 get_next_line.c\
+		 get_grid.c\
 		 event.c
 
-INC_NAME=$(wildcard *.h)
 OBJ_NAME=$(SRC_NAME:.c=.o)
 LIB_NAME=libft
 

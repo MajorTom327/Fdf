@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/28 06:25:18 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/17 03:51:12 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/19 01:57:56 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,7 @@
 # define W_WIDTH	1024
 # define StructureNotifyMask (1L << 17)
 # define DestroyNotify 17
-
-typedef struct	s_coord
-{
-	int		x;
-	int		y;
-}				t_coord;
+# include <vector.h>
 typedef	struct	s_data
 {
 	void	*mlx;
@@ -30,14 +25,20 @@ typedef	struct	s_data
 typedef struct	s_poly
 {
 	int		nb_corner;
-	t_coord	*pos_corner;
+	t_v2	*pos_corner;
 }				t_poly;
-void			usage();
-int				f_exit(int keycode, void *data);
-int				f_distance(t_coord src, t_coord dst);
-void			f_draw_line(t_coord src, t_coord dst, t_data data, int c);
-void			f_draw_linefade(t_coord src, t_coord dst, t_data data, int *c);
-void			f_draw_pixelintensity(const t_coord pos, int color, float \
+int				f_distance(t_v2 src, t_v2 dst);
+void			f_draw_line(t_v2 src, t_v2 dst, t_data data, int c);
+void			f_draw_linefade(t_v2 src, t_v2 dst, t_data data, int *c);
+void			f_draw_pixelintensity(const t_v2 pos, int color, float \
 		intensity, const	t_data data);
-int	f_mouse(int btn, int x, int y, void *param);
+
+int				f_mouse(int btn, int x, int y, void *param);
+int				f_exit(int keycode, void *data);
+
+t_v3			**get_grid(const char *av);
+
+void			usage(void);
+void			exitf(void);
+void			exitm(void *mem);
 #endif

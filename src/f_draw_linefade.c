@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/03 04:49:09 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/17 03:52:06 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/19 00:56:04 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	f_purcentcolor(int *c, int p)
 ** 	- Color for the color start ([0]) and for the color end ([1])
 */
 
-void	f_draw_linefade(t_coord src, t_coord dst, t_data data, int *c)
+void	f_draw_linefade(t_v2 src, t_v2 dst, t_data data, int *c)
 {
 	/*
 	t_coord		pos;

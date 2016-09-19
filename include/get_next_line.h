@@ -1,36 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f_exit.c                                           :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/28 06:31:33 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/19 01:56:17 by vthomas          ###   ########.fr       */
+/*   Created: 2016/06/10 00:44:55 by vthomas           #+#    #+#             */
+/*   Updated: 2016/09/19 01:46:13 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <errno.h>
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# define BUFF_SIZE 8
 
-#include <fdf.h>
-#include <libft.h>
-
-void exitf(void)
-{
-	perror(strerror(errno));
-	exit(EXIT_FAILURE);
-}
-
-void	exitm(void *mem)
-{
-	if (mem == NULL)
-		exitf();
-}
-
-void	usage(void)
-{
-	ft_putendl("Usage: ./fdf file...");
-	exit(0);
-}
+int			get_next_line(const int fd, char **line);
+#endif

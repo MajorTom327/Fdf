@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   f_draw_pixelintensity.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vthomas <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/03 03:22:59 by vthomas           #+#    #+#             */
-/*   Updated: 2016/03/03 05:52:24 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/19 00:55:02 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "mlx.h"
 #include "libft.h"
 
-void	f_draw_pixelintensity(const t_coord pos, int color, float intensity, const t_data data)
+void	f_draw_pixelintensity(const t_v2 pos, int color, float intensity, const t_data data)
 {
 	int red;
 	int green;

@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/03 03:22:23 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/17 03:05:06 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/19 00:55:26 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 ** 	- Color for the color of the point
 */
 
-void	f_draw_line(t_coord src, t_coord dst, t_data data, int c)
+void	f_draw_line(t_v2 src, t_v2 dst, t_data data, int c)
 {
 	int dx = abs(dst.x - src.x), sx = src.x < dst.x ? 1 : -1;
 	int dy = abs(dst.y - src.y), sy = src.y < dst.y ? 1 : -1;
