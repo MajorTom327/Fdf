@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/28 06:25:18 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/19 09:24:11 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/19 09:59:06 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # define FDF_BASE_X	16
 # define FDF_BASE_Y 8
 # define FDF_BASE_LVL 4
-# define FDF_MOVE_PADDING 4
+# define FDF_MOVE_PADDING 8
 # define FDF_MARGIN	W_HEIGHT / 5
 # define StructureNotifyMask (1L << 17)
 # define DestroyNotify 17
@@ -31,6 +31,8 @@
 # define VK_A		0
 # define VK_S		1
 # define VK_D		2
+# define VL_Q		12
+# define VL_E		14
 
 # include <vector.h>
 typedef	struct	s_data
@@ -40,6 +42,7 @@ typedef	struct	s_data
 	t_v3	**grid;
 	t_v2	size;
 	t_v3	format;
+	t_v2	pos;
 }				t_data;
 typedef struct	s_poly
 {

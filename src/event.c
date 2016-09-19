@@ -36,7 +36,10 @@ int		event_key(int keycode, t_data *data)
 	if (keycode == VK_D)
 		tmp.x = 1;
 	if (tmp.x != 0 || tmp.y != 0)
+	{
 		move_grid(data, tmp);
+		return (0);
+	}
 	if (keycode == VK_UP)
 		tmp.y = -1;
 	if (keycode == VK_LEFT)

@@ -80,8 +80,8 @@ static t_v3	**sf_grid(const char *av, t_v2 *size)
 				tmp = ft_strnew(i.x - i.y);
 				ft_strncpy(tmp, &str[i.y], i.x - i.y);
 				grid[pos.y][pos.x].z = ft_atoi(tmp);
-				grid[pos.y][pos.x].x = pos.x * FDF_BASE_X + FDF_MARGIN;
-				grid[pos.y][pos.x].y = pos.y * FDF_BASE_Y + FDF_MARGIN;
+				grid[pos.y][pos.x].x = pos.x;// * FDF_BASE_X + FDF_MARGIN;
+				grid[pos.y][pos.x].y = pos.y;// * FDF_BASE_Y + FDF_MARGIN;
 				ft_strdel(&tmp);
 				pos.x++;
 				//dbg_var_strint("sf_grid", "x", str, i.x, 2);

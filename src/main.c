@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/28 05:22:40 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/19 09:19:54 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/19 09:46:11 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	main(int ac, char **av)
 	data.format.x = FDF_BASE_X;
 	data.format.y = FDF_BASE_Y;
 	data.format.z = FDF_BASE_LVL;
+	data.pos.x = W_WIDTH / 2;
+	data.pos.y = W_HEIGHT / 2;
 
 	refresh(data);
 	draw_grid(data, data.grid, data.size, 0xFFFFFF);
