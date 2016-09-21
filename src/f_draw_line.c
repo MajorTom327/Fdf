@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/03 03:22:23 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/21 20:18:23 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/21 23:28:39 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void	f_draw_line(t_v2 src, t_v2 dst, t_data data, int c)
 	e.x = (d.x > d.y ? d.x : -d.y) / 2;
 	while (src.x != dst.x || src.y != dst.y)
 	{
-		mlx_pixel_put(data.mlx, data.win, src.x, src.y, c);
+		mlx_pixel_put(data.mlx, data.win, src.x, src.y,\
+			mlx_get_color_value(data.mlx, c));
 		e.y = e.x;
 		if (e.y > -d.x)
 		{
