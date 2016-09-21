@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 20:18:30 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/21 21:15:52 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/21 22:32:36 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <sys/types.h>
 #include <fcntl.h>
 #include <stdlib.h>
+#include <debug.h>
 
 #include <fdf.h>
 #include <libft.h>

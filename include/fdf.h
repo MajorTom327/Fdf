@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/28 06:25:18 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/21 21:23:59 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/21 22:23:23 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # define VK_A		0
 # define VK_S		1
 # define VK_D		2
+# define VK_R		16
 # define VK_1		18
 # define VK_2		19
 

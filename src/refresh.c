@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 20:18:25 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/21 21:30:12 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/21 22:40:13 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,31 +56,25 @@ void	print_grid(t_data *data)
 	t_v2	p;
 
 	p.y = -1;
-	ft_putstr("\n\033[34m[");
-	ft_putnbr(data->size.x);
-	ft_putchar(';');
-	ft_putnbr(data->size.y);
-	ft_putendl("]\033[0m");
-	ft_putstr("\t");
+	ft_putnbr_desc("\n\033[34m[", data->size.x);
+	ft_putnbr_desc(";", data->size.y);
+	ft_putstr("]\033[0m\n\t");
 	while (p.y++ < data->size.x - 1)
 	{
-		ft_putstr("\033[32;4m");
-		ft_putnbr(p.y);
+		ft_putnbr_desc("\033[32;4m", p.y);
 		ft_putstr(":\t\033[0m");
 	}
 	ft_putchar('\n');
 	p.y = -1;
 	while (p.y++ < data->size.y - 1)
 	{
-		p.x = 0;
-		ft_putstr("\033[32;4m");
-		ft_putnbr(p.y);
+		p.x = -1;
+		ft_putnbr_desc("\033[32;4m", p.y);
 		ft_putstr(":\t\033[0m");
-		while (p.x < data->size.x - 1)
+		while (++p.x < data->size.x)
 		{
 			ft_putnbr(data->grid[p.y][p.x].z);
 			ft_putchar('\t');
-			p.x++;
 		}
 		ft_putchar('\n');
 	}
