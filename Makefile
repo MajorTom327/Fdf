@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 21:15:40 by vthomas           #+#    #+#              #
-#    Updated: 2016/09/22 00:32:22 by vthomas          ###   ########.fr        #
+#    Updated: 2016/09/22 00:38:33 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,6 +94,8 @@ re: fclean all
 clean:
 	@rm -rf $(OBJ)
 	@rm -rf $(OBJ_PATH)
+	@make -C mlx $@
+	@(cd $(LIB) && $(MAKE) $@)
 
 fclean: clean
 	@rm -rf $(NAME)
