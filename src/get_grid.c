@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_grid.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/09/21 20:18:30 by vthomas           #+#    #+#             */
+/*   Updated: 2016/09/21 20:18:31 by vthomas          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 #include <sys/types.h>
 #include <fcntl.h>
@@ -12,40 +24,34 @@ static int	get_line_len(const char *file, t_v2 *size)
 {
 	char	*str;
 	char	*tmp;
+	t_v2	pos;
 	int		fd;
-	int		i;
-	int		l;
-	int		c;
 
 	if ((fd = open(file, O_RDONLY)) < 0)
 		exitf();
-	l = get_next_line(fd, &str);
-	if (l < 0)
+	if ((pos.y = get_next_line(fd, &str)) < 0)
 		exitf();
-	l = (int)ft_strlen(str);
-	c = 1;
+	pos.y = (int)ft_strlen(str);
 	while (get_next_line(fd, &tmp) > 0)
-		c++;
+		size->y++;
 	close(fd);
-	size->y = c;
 	ft_strdel(&tmp);
-	i = 0;
-	c = 0;
-	while (i < l)
+	pos.x = 0;
+	size->x = 0;
+	while (pos.x < pos.y)
 	{
-		if (str[i] >= '0' && str[i] <= '9')
+		if (str[pos.x] >= '0' && str[pos.x] <= '9')
 		{
-			c++;
-			while (str[i] >= '0' && str[i] <= '9')
-				i++;
+			size->x++;
+			while (str[pos.x] >= '0' && str[pos.x] <= '9')
+				pos.x++;
 		}
-		i++;
+		pos.x++;
 	}
-	if (c == 0)
+	if (size->x == 0)
 		exitfile();
-	size->x = c;
 	ft_strdel(&str);
-	return (c);
+	return (size->x);
 }
 
 static t_v3	**sf_grid(const char *av, t_v2 *size)
@@ -83,12 +89,10 @@ static t_v3	**sf_grid(const char *av, t_v2 *size)
 				tmp = ft_strnew(i.x - i.y);
 				ft_strncpy(tmp, &str[i.y], i.x - i.y);
 				grid[pos.y][pos.x].z = ft_atoi(tmp);
-				grid[pos.y][pos.x].x = pos.x;// * FDF_BASE_X + FDF_MARGIN;
-				grid[pos.y][pos.x].y = pos.y;// * FDF_BASE_Y + FDF_MARGIN;
+				grid[pos.y][pos.x].x = pos.x;
+				grid[pos.y][pos.x].y = pos.y;
 				ft_strdel(&tmp);
 				pos.x++;
-				//dbg_var_strint("sf_grid", "x", str, i.x, 2);
-				//dbg_var_strint("sf_grid", "y", str, i.y, 2);
 				i.y = i.x;
 			}
 			else

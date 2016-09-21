@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   event.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/09/21 20:18:05 by vthomas           #+#    #+#             */
+/*   Updated: 2016/09/21 20:18:07 by vthomas          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <libft.h>
 #include <fdf.h>
 
-int	f_mouse(int btn, int x, int y, void *param)
+int		f_mouse(int btn, int x, int y, void *param)
 {
 	(void)*param;
 	(void)btn;

@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/28 05:22:40 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/21 19:44:09 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/21 19:59:49 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 		usage();
+	data.size.y = 1;
 	data.grid = get_grid(av[1], &(data.size));
 	data.mlx = mlx_init();
 	data.win = mlx_new_window(data.mlx, W_WIDTH, W_HEIGHT, "Title");
