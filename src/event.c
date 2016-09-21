@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 20:18:05 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/21 20:18:07 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/21 21:24:11 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ int		event_key(int keycode, t_data *data)
 	else if (keycode == VK_UP || keycode == VK_LEFT || keycode == VK_RIGHT ||\
 		keycode == VK_DOWN || keycode == VK_ADD || keycode == VK_SUB)
 		resize_grid(data, keycode);
-	else if (keycode == VK_Q || keycode == VK_E)
-		rotate_grid(data, keycode);
-	else if (keycode == VK_NUM_1 || keycode == VK_NUM_2 || keycode == VK_NUM_3)
-		change_view(data, keycode);
+	else if (keycode == VK_1)
+		print_grid(data);
+	else if (keycode == VK_2)
+		print_file(data);
 	return (0);
 }

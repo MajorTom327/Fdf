@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 20:18:30 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/21 20:18:31 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/21 21:15:52 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,6 @@ static t_v3	**sf_grid(const char *av, t_v2 *size)
 	int		l;
 
 	get_line_len(av, size);
-	dbg_var_int("sf_grid", "x", size->x, 1);
-	dbg_var_int("sf_grid", "y", size->y, 1);
 	exitm((void*)(grid = (t_v3**)ft_memalloc(sizeof(t_v3 *) * (size->y + 1))));
 	if ((fd = open(av, O_RDONLY)) < 0)
 		exitf();
@@ -75,16 +73,15 @@ static t_v3	**sf_grid(const char *av, t_v2 *size)
 	while ((ret = get_next_line(fd, &str)) > 0)
 	{
 		l = (int)ft_strlen(str);
-		dbg_var_str("sf_grid", "str", str, 1);
 		i.x = 0;
 		i.y = 0;
 		pos.x = 0;
 		exitm((void*)(grid[pos.y] = (t_v3*)ft_memalloc(sizeof(t_v3) * size->x)));
-		while (i.x < l)
+		while (i.x <= l)
 		{
 			if (ft_isdigit(str[i.y]) || str[i.y] == '-')
 			{
-				while (ft_isdigit(str[i.x]))
+				while (ft_isdigit(str[i.x]) || str[i.x] == '-')
 					i.x++;
 				tmp = ft_strnew(i.x - i.y);
 				ft_strncpy(tmp, &str[i.y], i.x - i.y);

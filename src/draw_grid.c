@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 20:18:09 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/21 20:18:11 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/21 21:23:11 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	draw_grid(t_data *data, t_v3 **grid, t_v2 size, int c)
 		p.x = 0;
 		while (p.x < size.x - 1)
 		{
-			data->current_y = p.y;
 			if (p.x > 0)
 				f_draw_linev3(grid[p.y][p.x], grid[p.y][p.x - 1], *data, c);
 			if (p.y > 0)
