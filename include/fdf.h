@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/28 06:25:18 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/19 12:43:26 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/21 19:45:43 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 # define FDF_BASE_LVL 4
 # define FDF_MOVE_PADDING 8
 # define FDF_MARGIN	W_HEIGHT / 5
-# define StructureNotifyMask (1L << 17)
-# define DestroyNotify 17
 # define VK_LEFT	123
 # define VK_UP		126
 # define VK_RIGHT	124
@@ -33,6 +31,9 @@
 # define VK_D		2
 # define VK_Q		12
 # define VK_E		14
+# define VK_NUM_1	83
+# define VK_NUM_2	84
+# define VK_NUM_3	85
 
 # include <vector.h>
 typedef	struct	s_data
@@ -43,7 +44,9 @@ typedef	struct	s_data
 	t_v2	size;
 	t_v3	format;
 	t_v2	pos;
+	int		current_y;
 	int		angle;
+	int		view;
 }				t_data;
 typedef struct	s_poly
 {
@@ -53,12 +56,10 @@ typedef struct	s_poly
 int				f_distance(t_v2 src, t_v2 dst);
 void			f_draw_line(t_v2 src, t_v2 dst, t_data data, int c);
 void			f_draw_linev3(t_v3 src, t_v3 dst, t_data data, int c);
-void			f_draw_linefade(t_v2 src, t_v2 dst, t_data data, int *c);
-void			f_draw_pixelintensity(const t_v2 pos, int color, float \
-		intensity, const	t_data data);
 
 int				f_mouse(int btn, int x, int y, void *param);
 int				f_exit(int keycode, void *data);
+int				f_exitfull(void *data);
 int				event_key(int keycode, t_data *data);
 
 t_v3			**get_grid(const char *av, t_v2 *size);
@@ -69,6 +70,7 @@ void			refresh(t_data *data);
 void			move_grid(t_data *data, int keycode);
 void			resize_grid(t_data *data, int keycode);
 void			rotate_grid(t_data *data, int keycode);
+void			change_view(t_data *data, int keycode);
 
 void			usage(void);
 void			exitf(void);

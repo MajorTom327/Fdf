@@ -40,15 +40,37 @@ void	resize_grid(t_data *data, int keycode)
 
 void	rotate_grid(t_data *data, int keycode)
 {
+	t_v2	pos;
+	t_v2	tmp;
+	float		a;
+
 	if (keycode == VK_Q)
-		data->angle--;
+		a = -0.1;
 	else
-		data->angle++;
-	if (data->angle < 0)
-		data->angle += 360;
-	else if (data->angle > 359)
-		data->angle -= 360;
-	data->angle = 0;
-	dbg_var_int("rotate_grid", "angle", data->angle, 2);
+		a = 0.1;
+	pos.y = 0;
+	while (pos.y < data->size.y)
+	{
+		pos.x = 0;
+		while (pos.x < data->size.x - 1)
+		{
+			tmp.x = data->grid[pos.y][pos.x].x;
+			tmp.y = data->grid[pos.y][pos.x].y;
+			//data->grid[pos.y][pos.x].x = tmp.x * cos(angle) + tmp.y * -sin(angle);
+			//data->grid[pos.y][pos.x].y = tmp.x * sin(angle) + tmp.y * cos(angle);
+			data->grid[pos.y][pos.x].x = (int)((float) tmp.x * cosf(a) + (float)tmp.y * -sinf(a));
+			data->grid[pos.y][pos.x].y = (int)((float) tmp.x * sinf(a) + (float)tmp.y * cosf(a));
+			pos.x++;
+		}
+		pos.y++;
+	}
+	//dbg_diff_int("rotate_grid", "pos", pos.x, 0, 1);
+	//dbg_diff_int("rotate_grid", "pos", pos.y, 1, 1);
+	refresh(data);
+}
+
+void	change_view(t_data *data, int keycode)
+{
+	data->view = keycode - 82;
 	refresh(data);
 }

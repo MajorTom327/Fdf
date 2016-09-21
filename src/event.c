@@ -3,6 +3,8 @@
 
 int	f_mouse(int btn, int x, int y, void *param)
 {
+	(void)*param;
+	(void)btn;
 	ft_putstr("Motion: [");
 	ft_putnbr(x);
 	ft_putstr(";");
@@ -13,10 +15,24 @@ int	f_mouse(int btn, int x, int y, void *param)
 
 int		f_exit(int keycode, void *data)
 {
+	t_data	*d;
+
 	if (keycode == 53)
 	{
+		d = (t_data *)data;
+		ft_memdel((void **)d->grid);
 		exit(EXIT_SUCCESS);
 	}
+	return (0);
+}
+
+int		f_exitfull(void *data)
+{
+	t_data	*d;
+
+	d = (t_data *)data;
+	ft_memdel((void **)d->grid);
+	exit(EXIT_SUCCESS);
 	return (0);
 }
 
@@ -30,4 +46,7 @@ int		event_key(int keycode, t_data *data)
 		resize_grid(data, keycode);
 	else if (keycode == VK_Q || keycode == VK_E)
 		rotate_grid(data, keycode);
+	else if (keycode == VK_NUM_1 || keycode == VK_NUM_2 || keycode == VK_NUM_3)
+		change_view(data, keycode);
+	return (0);
 }

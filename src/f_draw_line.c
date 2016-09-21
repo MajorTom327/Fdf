@@ -6,12 +6,12 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/03 03:22:23 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/19 00:55:26 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/21 19:36:14 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
-#include "fdf.h"
+#include <mlx.h>
+#include <fdf.h>
 #include <math.h>
 #include <stdlib.h>
 
@@ -25,23 +25,28 @@
 
 void	f_draw_line(t_v2 src, t_v2 dst, t_data data, int c)
 {
-	int dx = abs(dst.x - src.x), sx = src.x < dst.x ? 1 : -1;
-	int dy = abs(dst.y - src.y), sy = src.y < dst.y ? 1 : -1;
-	int err = (dx>dy ? dx : -dy)/2, e2;
+	t_v2	d;
+	t_v2	s;
+	t_v2	e;
+
+	d.x = abs(dst.x - src.x);
+	s.x = src.x < dst.x ? 1 : -1;
+	d.y = abs(dst.y - src.y);
+	s.y = src.y < dst.y ? 1 : -1;
+	e.x = (d.x > d.y ? d.x : -d.y) / 2;
 	while (src.x != dst.x || src.y != dst.y)
 	{
 		mlx_pixel_put(data.mlx, data.win, src.x, src.y, c);
-		if (src.x == dst.x && src.y == dst.y) break;
-		e2 = err;
-		if (e2 >-dx)
+		e.y = e.x;
+		if (e.y > -d.x)
 		{
-			err -= dy;
-			src.x += sx;
+			e.x -= d.y;
+			src.x += s.x;
 		}
-		if (e2 < dy)
+		if (e.y < d.y)
 		{
-			err += dx;
-			src.y += sy;
+			e.x += d.x;
+			src.y += s.y;
 		}
 	}
 }

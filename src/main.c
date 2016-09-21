@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/28 05:22:40 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/19 12:46:59 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/21 19:44:09 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 int	main(int ac, char **av)
 {
 	t_data	data;
-	t_v2	size;
 
 	if (ac != 2)
 		usage();
@@ -31,14 +30,12 @@ int	main(int ac, char **av)
 	data.pos.x = data.format.x * 3;
 	data.pos.y = data.format.y * 3;
 	data.angle = 0;
-
+	data.current_y = 0;
+	data.view = 2;
 	refresh(&data);
-
-	mlx_key_hook(data.win, &f_exit, 0);
-	//mlx_mouse_hook(data.win, &f_mouse, 0);
-	//TODO: Create a function for exit and cleanup
-	mlx_hook(data.win, DestroyNotify, StructureNotifyMask, &exit, (void *)0);
-	mlx_hook(data.win, 2, (1L<<0), &event_key, (void *)&data);
+	mlx_key_hook(data.win, &f_exit, (void *)&data);
+	mlx_hook(data.win, 17, (1L << 17), &f_exitfull, (void *)&data);
+	mlx_hook(data.win, 2, (1L << 0), &event_key, (void *)&data);
 	mlx_loop(data.mlx);
 	return (0);
 }

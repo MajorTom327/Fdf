@@ -8,7 +8,7 @@
 #include <get_next_line.h>
 #include <debug.h>
 
-static int	get_line_len(const char *file)
+static int	get_line_len(const char *file, t_v2 *size)
 {
 	char	*str;
 	char	*tmp;
@@ -23,9 +23,11 @@ static int	get_line_len(const char *file)
 	if (l < 0)
 		exitf();
 	l = (int)ft_strlen(str);
+	c = 1;
 	while (get_next_line(fd, &tmp) > 0)
-		;
+		c++;
 	close(fd);
+	size->y = c;
 	ft_strdel(&tmp);
 	i = 0;
 	c = 0;
@@ -41,6 +43,7 @@ static int	get_line_len(const char *file)
 	}
 	if (c == 0)
 		exitfile();
+	size->x = c;
 	ft_strdel(&str);
 	return (c);
 }
@@ -56,7 +59,7 @@ static t_v3	**sf_grid(const char *av, t_v2 *size)
 	char	*tmp;
 	int		l;
 
-	size->x = get_line_len(av);
+	get_line_len(av, size);
 	dbg_var_int("sf_grid", "x", size->x, 1);
 	dbg_var_int("sf_grid", "y", size->y, 1);
 	exitm((void*)(grid = (t_v3**)ft_memalloc(sizeof(t_v3 *) * (size->y + 1))));
@@ -101,18 +104,5 @@ static t_v3	**sf_grid(const char *av, t_v2 *size)
 
 t_v3		**get_grid(const char *av, t_v2 *size)
 {
-	int fd;
-	int ret;
-	char *str;
-
-	if ((fd = open(av, O_RDONLY)) < 2)
-		exitf();
-	size->y = 0;
-	while ((ret = get_next_line(fd, &str)) > 0)
-	{
-		size->y++;
-	}
-	ft_strdel(&str);
-	close(fd);
 	return (sf_grid(av, size));
 }
