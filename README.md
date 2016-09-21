@@ -12,3 +12,15 @@ The but of the project is to create a iron wire view of a file in isometric 3D
 How it's working:
 -----------------
 > $> ./fdf file
+
+
+
+Keyboard Shortcut:
+------------------
+- `wasd`: move the wireframe
+- `1`: show the data inside the fdf
+- `2`: show the file
+- `+`: expand level
+- `-`: reduce level
+- `◀ ▶`: expand or reduce the tile width
+- `▲ ▼`: expand or reduce the tile heigh

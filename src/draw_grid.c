@@ -6,14 +6,13 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 20:18:09 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/21 22:21:59 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/22 00:10:29 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
 #include <libft.h>
 #include <unistd.h>
-#include <debug.h>
 
 void	draw_grid(t_data *data, t_v3 **grid, t_v2 size, int c)
 {

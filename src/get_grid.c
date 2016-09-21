@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 20:18:30 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/21 23:52:57 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/22 00:10:10 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 #include <sys/types.h>
 #include <fcntl.h>
 #include <stdlib.h>
-#include <debug.h>
 
 #include <fdf.h>
 #include <libft.h>
 #include <get_next_line.h>
-#include <debug.h>
 
 static int	cleargnl(int fd)
 {

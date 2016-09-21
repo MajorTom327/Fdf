@@ -6,14 +6,14 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/28 05:22:40 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/21 21:05:41 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/22 00:26:08 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
-#include "libft.h"
-#include "fdf.h"
-#include "stdio.h"
+#include <mlx.h>
+#include <libft.h>
+#include <fdf.h>
+#include <stdio.h>
 
 int	main(int ac, char **av)
 {

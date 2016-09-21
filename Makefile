@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 21:15:40 by vthomas           #+#    #+#              #
-#    Updated: 2016/09/21 19:45:30 by vthomas          ###   ########.fr        #
+#    Updated: 2016/09/22 00:32:22 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,18 +15,18 @@ NAME=fdf
 SYS=mac
 #Debugging commande (yes/no)
 ifeq ($(SYS),mac)
-	ARG = $(INC) $(OBJ) $(LIB_FILE) -lm -lmlx -framework OpenGL\
-	-framework AppKit
+	ARG = $(INC) $(OBJ) $(LIB_FILE) -L./mlx -lm -lmlx -I ./mlx/include \
+	-framework OpenGL -framework AppKit
 else
 	ARG = -I /user/X11/include  $(OBJ) $(LIB_FILE) -L/usr/X11/lib -lm -lmlx\
 	-lX11 -lXext
 endif
-DEBUG=yes
+DEBUG=no
 CC=gcc
 ifeq ($(DEBUG),yes)
-	export CFLAGS=-Wall -Wextra -g ./libdbg.a
+	CFLAGS=-Wall -Wextra -g
 else
-	export CFLAGS=-Wall -Wextra -Werror
+	CFLAGS=-Wall -Wextra -Werror
 endif
 
 #* ******************************************* *#
@@ -39,16 +39,16 @@ INC_PATH=./include/
 OBJ_PATH=./obj/
 LIB_PATH=./
 
-SRC_NAME=main.c\
-		 draw_grid.c\
-		 refresh.c\
+SRC_NAME=draw_grid.c\
+		 event.c\
 		 f_draw_line.c\
 		 f_draw_linev3.c\
 		 f_exit.c\
-		 get_next_line.c\
 		 get_grid.c\
+		 get_next_line.c\
+		 main.c\
 		 motion.c\
-		 event.c
+		 refresh.c
 
 OBJ_NAME=$(SRC_NAME:.c=.o)
 LIB_NAME=libft
@@ -68,12 +68,13 @@ LIB_FILE=$(addprefix $(LIB),/$(addprefix $(LIB_NAME),.a))
 #* There, it's the rules who compilate the program *#
 #* *********************************************** *#
 all: $(NAME)
-$(NAME):$(OBJ) $(LIB)
+$(NAME): $(OBJ) $(LIB)
 ifeq ($(DEBUG),yes)
 	@echo "\033[32m[MAIN]\033[5;31m\t\t(debug)\033[0m"
 else
 	@echo "\033[32m[MAIN]\t\t(release)\033[0m"
 endif
+	@make -C mlx/
 	@$(CC) $(CFLAGS) -o $(NAME) $(INC) $(ARG)
 
 # Compilation of all .c with modulable rule

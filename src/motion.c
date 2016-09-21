@@ -6,13 +6,12 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 20:18:44 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/21 20:21:02 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/22 00:10:18 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
 #include <math.h>
-#include <debug.h>
 
 void	move_grid(t_data *data, int keycode)
 {
