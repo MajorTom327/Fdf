@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 20:18:05 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/21 22:22:56 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/24 23:32:28 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,17 @@ int		event_key(int keycode, t_data *data)
 		print_grid(data);
 	else if (keycode == VK_2)
 		print_file(data);
-	else if (keycode == VK_R)
-		refresh(data);
+	else if (keycode == VK_NUM_0)
+		data->show = !data->show;
+	else if (keycode == VK_NUM_1 || keycode == VK_NUM_2 || keycode == VK_NUM_3)
+	{
+		if (keycode == VK_NUM_1)
+			data->angle = 0.544;
+		else if (keycode == VK_NUM_2)
+			data->angle = 0.0;
+		else
+			data->angle = -0.323;
+	}
+	refresh(data);
 	return (0);
 }

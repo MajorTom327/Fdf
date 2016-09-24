@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/28 06:25:18 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/24 22:04:29 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/24 23:33:02 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,12 @@
 # define VK_A		0
 # define VK_S		1
 # define VK_D		2
-# define VK_R		16
 # define VK_1		18
 # define VK_2		19
+# define VK_NUM_0	82
+# define VK_NUM_1	83
+# define VK_NUM_2	84
+# define VK_NUM_3	85
 
 # include <vector.h>
 
@@ -47,6 +50,8 @@ typedef	struct	s_data
 	t_v2	pos;
 	int		current_y;
 	char	*file;
+	float	angle;
+	int		show;
 }				t_data;
 
 int				f_distance(t_v2 src, t_v2 dst);

@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/28 05:22:40 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/24 22:05:07 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/24 23:28:35 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	main(int ac, char **av)
 	data.pos.x = data.format.x * 3;
 	data.pos.y = data.format.y * 3;
 	data.file = av[1];
+	data.angle = 0.0;
+	data.show = 0;
 	refresh(&data);
 	mlx_key_hook(data.win, &f_exit, (void *)&data);
 	mlx_hook(data.win, 17, (1L << 17), &f_exitfull, (void *)&data);

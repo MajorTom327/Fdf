@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 20:18:09 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/24 21:59:54 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/24 23:33:22 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,27 @@
 #include <libft.h>
 #include <get_next_line.h>
 
-void	draw_grid(t_data *data, t_v3 **grid, t_v2 size, int c)
+static void	draw_cur(t_data *data)
+{
+	t_v3 v;
+	t_v3 o;
+
+	o.x = 0;
+	o.y = 0;
+	o.z = 0;
+	v.x = 1;
+	v.y = 0;
+	v.z = 0;
+	f_draw_linev3(o, v, *data, 0xFF0000);
+	v.x = 0;
+	v.y = 1;
+	f_draw_linev3(o, v, *data, 0x00FF00);
+	v.y = 0;
+	v.z = 10;
+	f_draw_linev3(o, v, *data, 0x0000FF);
+}
+
+void		draw_grid(t_data *data, t_v3 **grid, t_v2 size, int c)
 {
 	t_v2	p;
 
@@ -38,9 +58,11 @@ void	draw_grid(t_data *data, t_v3 **grid, t_v2 size, int c)
 		}
 		p.y++;
 	}
+	if (data->show)
+		draw_cur(data);
 }
 
-int		cleargnl(int fd)
+int			cleargnl(int fd)
 {
 	char	*str;
 	int		i;
