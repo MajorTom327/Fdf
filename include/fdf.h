@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/28 06:25:18 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/21 22:23:23 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/24 22:04:29 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ int				f_exit(int keycode, void *data);
 int				f_exitfull(void *data);
 int				event_key(int keycode, t_data *data);
 
-t_v3			**get_grid(const char *av, t_v2 *size);
+void			get_grid(const char *av, t_v2 *size, t_data *data);
+int				cleargnl(int fd);
 
 void			draw_grid(t_data *data, t_v3 **grid, t_v2 size, int c);
 void			print_grid(t_data *data);

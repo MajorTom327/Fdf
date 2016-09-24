@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 20:18:30 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/22 00:10:10 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/24 22:15:06 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,16 @@
 #include <libft.h>
 #include <get_next_line.h>
 
-static int	cleargnl(int fd)
+static void	addpoint(t_v2 *pos, t_v2 *i, t_data *data, char *str)
 {
-	char	*str;
-	int		i;
+	char *tmp;
 
-	i = 1;
-	while (get_next_line(fd, &str))
-	{
-		ft_strdel(&str);
-		i++;
-	}
-	ft_strdel(&str);
-	close(fd);
-	return (i);
+	tmp = ft_strnew(i->x - i->y);
+	ft_strncpy(tmp, &str[i->y], i->x - i->y);
+	data->grid[pos->y][pos->x].z = ft_atoi(tmp);
+	data->grid[pos->y][pos->x].x = pos->x;
+	data->grid[pos->y][pos->x].y = pos->y;
+	ft_strdel(&tmp);
 }
 
 static void	get_line_len(const char *file, t_v2 *size)
@@ -61,11 +57,13 @@ static void	get_line_len(const char *file, t_v2 *size)
 	ft_strdel(&str);
 }
 
-static void	sf_grid(t_v2 *i, t_v2 *pos, char *str, t_v3 **grid)
+static void	sf_grid(t_v2 *i, t_v2 *pos, char *str, t_data *data)
 {
 	int		l;
-	char	*tmp;
+	int		max;
 
+	max = pos->x;
+	pos->x = 0;
 	l = ft_strlen(str);
 	while (i->x <= l)
 	{
@@ -73,12 +71,7 @@ static void	sf_grid(t_v2 *i, t_v2 *pos, char *str, t_v3 **grid)
 		{
 			while (ft_isdigit(str[i->x]) || str[i->x] == '-')
 				i->x++;
-			tmp = ft_strnew(i->x - i->y);
-			ft_strncpy(tmp, &str[i->y], i->x - i->y);
-			grid[pos->y][pos->x].z = ft_atoi(tmp);
-			grid[pos->y][pos->x].x = pos->x;
-			grid[pos->y][pos->x].y = pos->y;
-			ft_strdel(&tmp);
+			addpoint(pos, i, data, str);
 			pos->x++;
 			i->y = i->x;
 		}
@@ -87,31 +80,32 @@ static void	sf_grid(t_v2 *i, t_v2 *pos, char *str, t_v3 **grid)
 		i->x++;
 	}
 	pos->y++;
+	if (max != 0 && pos->x != max)
+		exitfile();
 }
 
-t_v3		**get_grid(const char *av, t_v2 *size)
+void		get_grid(const char *av, t_v2 *size, t_data *data)
 {
-	t_v3	**grid;
 	t_v2	pos;
 	t_v2	i;
 	int		fd;
 	char	*str;
 
 	get_line_len(av, size);
-	exitm((void*)(grid = (t_v3**)ft_memalloc(sizeof(t_v3 *) * (size->y + 1))));
+	exitm((void*)(data->grid = (t_v3**)\
+	ft_memalloc(sizeof(t_v3 *) * (size->y + 1))));
 	if ((fd = open(av, O_RDONLY)) < 0)
 		exitf();
 	pos.y = 0;
+	pos.x = 0;
 	while (get_next_line(fd, &str) > 0)
 	{
 		i.x = 0;
 		i.y = 0;
-		pos.x = 0;
-		exitm((void*)(grid[pos.y] = (t_v3*)\
+		exitm((void*)(data->grid[pos.y] = (t_v3*)\
 		ft_memalloc(sizeof(t_v3) * size->x)));
-		sf_grid(&i, &pos, str, grid);
+		sf_grid(&i, &pos, str, data);
 	}
 	ft_strdel(&str);
 	close(fd);
-	return (grid);
 }

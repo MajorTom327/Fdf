@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 21:15:40 by vthomas           #+#    #+#              #
-#    Updated: 2016/09/22 00:38:33 by vthomas          ###   ########.fr        #
+#    Updated: 2016/09/24 22:08:11 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -103,8 +103,9 @@ fclean: clean
 	@echo "\nWow ! Student clean it so much !\n"
 
 norme:
-	@norminette $(SRC)
-	@norminette $(addprefix $(INC_NAME),$(INC_PATH))
+	@norminette ./src/*.[ch]
+	@norminette ./libft/*.[ch]
+	@norminette ./include/*.[ch]
 
 test: re
 	@clear

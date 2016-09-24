@@ -6,13 +6,15 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 20:18:09 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/22 00:10:29 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/24 21:59:54 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
 #include <libft.h>
 #include <unistd.h>
+#include <libft.h>
+#include <get_next_line.h>
 
 void	draw_grid(t_data *data, t_v3 **grid, t_v2 size, int c)
 {
@@ -36,4 +38,20 @@ void	draw_grid(t_data *data, t_v3 **grid, t_v2 size, int c)
 		}
 		p.y++;
 	}
+}
+
+int		cleargnl(int fd)
+{
+	char	*str;
+	int		i;
+
+	i = 1;
+	while (get_next_line(fd, &str))
+	{
+		ft_strdel(&str);
+		i++;
+	}
+	ft_strdel(&str);
+	close(fd);
+	return (i);
 }
