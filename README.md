@@ -3,7 +3,7 @@ __FDF__ [![Build Status](https://travis-ci.com/MajorTom327/Fdf.svg?token=C3h4xYs
 --------------------------------------------------------------------------------
 Educational project
 -------------------
-fdf is an educational project about graphisme and an introduction of the librairie `libX` with a derivated librairie: `mlx`
+fdf is an educational project in introduction of graphical programs with `mlx`
 
 The but of the project is to create a iron wire view of a file in isometric 3D
 
@@ -24,3 +24,5 @@ Keyboard Shortcut:
 - `-`: reduce level
 - `◀ ▶`: expand or reduce the tile width
 - `▲ ▼`: expand or reduce the tile heigh
+- `numpad 1 2 3`: change viewpoint
+- `numpad 0`: show/hide visual indicator
