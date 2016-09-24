@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 20:18:15 by vthomas           #+#    #+#             */
-/*   Updated: 2016/09/24 23:33:32 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/09/24 23:51:36 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 
 static void	rotate(t_v2 *pos, float a)
 {
-	pos->x = (pos->x * cos(a)) + (pos->y * -sin(a));
-	pos->y = (pos->x * sin(a)) + (pos->y * cos(a));
+	pos->x = (int)(((float)pos->x * cosf(a)) + ((float)pos->y * -sinf(a)));
+	pos->y = (int)(((float)pos->x * sinf(a)) + ((float)pos->y * cosf(a)));
 }
 
 void		f_draw_linev3(t_v3 src, t_v3 dst, t_data data, int c)
